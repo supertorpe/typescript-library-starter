@@ -1,0 +1,70 @@
+{
+  "name": "mytslibrary",
+  "version": "0.0.5",
+  "description": "Typescript Library Starter",
+  "main": "dist/mytslibrary.umd.js",
+  "types": "dist/mytslibrary.d.ts",
+  "module": "dist/mytslibrary.esm.js",
+  "keywords": [],
+  "exports": {
+    ".": {
+      "require": "./dist/mytslibrary.umd.min.js",
+      "import": "./dist/mytslibrary.esm.min.js"
+    },
+    "./math": {
+      "require": "./dist/mytslibrary-math.umd.min.js",
+      "import": "./dist/mytslibrary-math.esm.min.js"
+    },
+    "./text": {
+      "require": "./dist/mytslibrary-text.umd.min.js",
+      "import": "./dist/mytslibrary-text.esm.min.js"
+    }
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "docs": "typedoc src/docs.ts",
+    "clean": "rimraf ./dist",
+    "build:js": "rollup -c rollup.config.js",
+    "build:minjs:umd": "terser dist/mytslibrary.umd.js --compress --mangle > dist/mytslibrary.umd.min.js && terser dist/mytslibrary-math.umd.js --compress --mangle > dist/mytslibrary-math.umd.min.js && terser dist/mytslibrary-text.umd.js --compress --mangle > dist/mytslibrary-text.umd.min.js",
+    "build:minjs:esm": "terser dist/mytslibrary.esm.js --compress --mangle > dist/mytslibrary.esm.min.js && terser dist/mytslibrary-math.esm.js --compress --mangle > dist/mytslibrary-text.esm.min.js && terser dist/mytslibrary-text.esm.js --compress --mangle > dist/mytslibrary-text.esm.min.js",
+    "build:minjs": "npm run build:minjs:esm -s && npm run build:minjs:umd -s",
+    "build": "npm run clean && npm run build:js -s && npm run build:minjs -s"
+  },
+  "files": [
+    "src",
+    "dist",
+    "math",
+    "text"
+  ],
+  "repository": "github:supertorpe/typescript-library-starter/",
+  "author": "supertorpe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supertorpe/typescript-library-starter/issues"
+  },
+  "homepage": "https://supertorpe.github.io/typescript-library-starter/",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/jest": "^27.0.2",
+    "husky": "^4.3.7",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0",
+    "terser": "^5.9.0",
+    "ts-jest": "^27.0.7",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.6",
+    "typescript": "^4.4.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@nexys/math-ts": "^1.3.6",
+    "string-kit": "^0.12.8"
+  }
+}

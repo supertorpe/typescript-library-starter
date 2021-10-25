@@ -1,0 +1,6 @@
+{
+    "internal": true,
+    "main": "../dist/mytslibrary-math.umd.js",
+    "module": "../dist/mytslibrary-math.esm.js",
+    "types": "../dist/math/math.d.ts"
+}

@@ -1,0 +1,1 @@
+export { cube, factorial } from './math';

@@ -1,0 +1,6 @@
+{
+    "internal": true,
+    "main": "../dist/mytslibrary-text.umd.js",
+    "module": "../dist/mytslibrary-text.esm.js",
+    "types": "../dist/text/text.d.ts"
+}

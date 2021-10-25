@@ -1,0 +1,1 @@
+export { ucase, escapeHtml } from './text';
